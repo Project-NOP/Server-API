@@ -1,0 +1,10 @@
+{
+    "production": {
+        "app_function": "production_app.application",
+        "aws_region": "ap-northeast-2",
+        "profile_name": "nop",
+        "project_name": "nop-server",
+        "runtime": "python3.7",
+        "s3_bucket": "nop-lambda"
+    }
+}
