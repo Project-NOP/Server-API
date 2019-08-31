@@ -2,12 +2,10 @@ from config import ssm
 
 
 class LocalDBConfig:
-    MONGODB_SETTINGS = {"host": "localhost", "port": 27017, "db": "nop"}
+    WRITE_DB_URL = "mysql+pymysql://root:password@127.0.0.1:3306/nop?charset=utf8mb4"
 
 
 class RemoteDBConfig:
-    host, port, db = ssm.get_parameter(Name="nop-mongodb-connection-info")["Parameter"][
+    WRITE_DB_URL = ssm.get_parameter(Name="nop-mysql-connection-string")["Parameter"][
         "Value"
-    ].split(",")
-
-    MONGODB_SETTINGS = {"host": host, "port": int(port), "db": db}
+    ]

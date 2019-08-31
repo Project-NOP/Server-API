@@ -8,7 +8,8 @@ def register_extensions(flask_app: Flask):
     from app import extensions
 
     extensions.cors.init_app(flask_app)
-    extensions.mongoengine.init_app(flask_app)
+    extensions.jwt.init_app(flask_app)
+    extensions.write_db.init_app(flask_app)
 
 
 def register_views(flask_app: Flask):
@@ -24,6 +25,13 @@ def register_hooks(flask_app: Flask):
     flask_app.after_request(after_request)
     flask_app.register_error_handler(HTTPException, http_exception_handler)
     flask_app.register_error_handler(Exception, broad_exception_handler)
+
+
+def fire_ddl():
+    from app import extensions
+    from app.models import Base
+
+    Base.metadata.create_all(extensions.write_db.engine)
 
 
 def create_app(*config_cls) -> Flask:
@@ -42,5 +50,6 @@ def create_app(*config_cls) -> Flask:
     register_extensions(flask_app)
     register_views(flask_app)
     register_hooks(flask_app)
+    fire_ddl()
 
     return flask_app

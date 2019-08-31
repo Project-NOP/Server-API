@@ -15,9 +15,11 @@ werkzeug = "*"
 arrow = "*"
 termcolor = "*"
 pydantic = "*"
-mongoengine = "*"
 boto3 = "*"
-flask-mongoengine = "*"
+requests-oauthlib = "*"
+flask-jwt-extended = "*"
+sqlalchemy = "*"
+pymysql = "*"
 
 [requires]
 python_version = "3.7"

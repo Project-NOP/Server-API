@@ -1,5 +1,8 @@
 from flask_cors import CORS
-from flask_mongoengine import MongoEngine
+from flask_jwt_extended import JWTManager
+
+from app.models import WriteDB
 
 cors = CORS()
-mongoengine = MongoEngine()
+jwt = JWTManager()
+write_db = WriteDB()

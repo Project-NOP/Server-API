@@ -1,6 +1,5 @@
 import boto3
 
-ssm = boto3.client(
-    "ssm",
-    endpoint_url="https://vpce-091e176e927058503-ububuzil.ssm.ap-northeast-2.vpce.amazonaws.com",
-)
+from app.constants.aws.vpc import SSM_VPCE_URL
+
+ssm = boto3.client("ssm", endpoint_url=SSM_VPCE_URL)

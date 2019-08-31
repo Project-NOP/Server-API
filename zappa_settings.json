@@ -5,6 +5,9 @@
         "profile_name": "nop",
         "project_name": "nop-server",
         "runtime": "python3.7",
-        "s3_bucket": "nop-lambda"
+        "s3_bucket": "nop-lambda",
+        "environment_variables": {
+            "ssm_vpce_url": "https://vpce-091e176e927058503-ububuzil.ssm.ap-northeast-2.vpce.amazonaws.com"
+        }
     }
 }
