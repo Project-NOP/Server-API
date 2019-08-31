@@ -16,6 +16,8 @@ arrow = "*"
 termcolor = "*"
 pydantic = "*"
 mongoengine = "*"
+boto3 = "*"
+flask-mongoengine = "*"
 
 [requires]
 python_version = "3.7"
